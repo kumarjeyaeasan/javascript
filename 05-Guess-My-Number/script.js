@@ -7,7 +7,7 @@ let number = Math.trunc(Math.random() * 20) + 1;
 const displayMessage = message =>
   (document.querySelector(".message").textContent = message);
 
-function guessMyNumber() {
+const guessMyNumber = function () {
   const guess = Number(document.querySelector(".guess").value);
 
   if (!guess) {
@@ -31,9 +31,9 @@ function guessMyNumber() {
       document.querySelector(".score").textContent = 0;
     }
   }
-}
+};
 
-function resetAll() {
+const resetAll = function () {
   score = 20;
   number = Math.trunc(Math.random() * 20) + 1;
   displayMessage("Start guessing...");
@@ -43,16 +43,15 @@ function resetAll() {
 
   document.querySelector("body").style.backgroundColor = "#222";
   document.querySelector(".number").style.width = "15rem";
-}
+};
 
-document.querySelector(".check").addEventListener("click", function () {
-  guessMyNumber();
+document.querySelector(".check").addEventListener("click", guessMyNumber);
+
+document.querySelector(".again").addEventListener("click", resetAll);
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") guessMyNumber();
 });
-
-document.querySelector(".again").addEventListener("click", function () {
-  resetAll();
-});
-
 // document.querySelector(".check").addEventListener("keypress", function (e) {
 //   if (e.key === "Enter") {
 //     guessMyNumber();
