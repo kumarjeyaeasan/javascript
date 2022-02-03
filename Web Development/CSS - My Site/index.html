@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Personal web site of Senthil Kumar." />
     <title>Senthil Kumar</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <!-- <link rel="stylesheet" href="css/styles.css" /> -->
     <link rel="icon" href="icons/favicon.ico?v2" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,56 +14,83 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/d661d162bc.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- BootStrap -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <div class="top-container">
-      <img class="topCloud" src="images/coding.png" alt="cloud-img" />
-      <h1>I'm Senthil</h1>
-      <h2>a <span class="pro">Pro</span>grammer.</h2>
-      <!-- <img class="bottomCloud" src="images/cloud.png" alt="cloud-img" /> -->
-      <img src="images/mountain.png" alt="mountain-img" />
-    </div>
-    <div class="middle-container">
-      <div class="profile">
-        <img src="images/senthil.jpg" alt="" />
-        <h2>Hello.</h2>
-        <p class="intro">
-          I'm a backend developer, implementing business logic for complex
-          enterprise applications.
-        </p>
+    <section id="features">
+      <!-- Features -->
+      <div class="top-container">
+        <img class="topCloud" src="images/coding.png" alt="cloud-img" />
+        <h1>I'm Senthil</h1>
+        <h2>a <span class="pro">Pro</span>grammer.</h2>
+        <!-- <img class="bottomCloud" src="images/cloud.png" alt="cloud-img" /> -->
+        <img src="images/mountain.png" alt="mountain-img" />
       </div>
-      <hr />
-      <div class="skills">
-        <h2>My Skills.</h2>
-        <div class="skill-row">
-          <img class="skill-img" src="images/skills.gif" alt="" />
-          <h3>Design & Development</h3>
-          <p>
-            Software engineer with more than 15 years of industry
-            experience.Passion to learn new technologies.
+      <div class="middle-container">
+        <div class="profile">
+          <img src="images/senthil.jpg" alt="" />
+          <h2>Hello.</h2>
+          <p class="intro">
+            I'm a backend developer, implementing business logic for complex
+            enterprise applications.
           </p>
         </div>
-        <div class="skill-row">
-          <img class="mern-img" src="images/mern_logo.jpg" alt="" />
-          <h3>Aspring MERN Stack developer</h3>
-          <p>Currently sharpening my skills in MERN Stack.</p>
+        <hr />
+        <div class="skills">
+          <h2>My Skills.</h2>
+          <div class="skill-row">
+            <img class="skill-img" src="images/skills.gif" alt="" />
+            <h3>Design & Development</h3>
+            <p>
+              Software engineer with more than 15 years of industry
+              experience.Passion to learn new technologies.
+            </p>
+          </div>
+          <div class="skill-row">
+            <img class="mern-img" src="images/mern_logo.jpg" alt="" />
+            <h3>Aspring MERN Stack developer</h3>
+            <p>Currently sharpening my skills in MERN Stack.</p>
+          </div>
+        </div>
+        <hr />
+        <div class="contact-me">
+          <h2>Get In Touch</h2>
+          <h3>For Collaboration.</h3>
+          <p class="contact-message">
+            Are looking for any assistance in designing your own website? Let's
+            collaborate and make wonderful webpages which are human friendly and
+            functional.
+          </p>
+          <a class="btn" href="mailto:senthilkumar.jeyaeasan@gmail.com"
+            >CONTACT ME</a
+          >
         </div>
       </div>
-      <hr />
-      <div class="contact-me">
-        <h2>Get In Touch</h2>
-        <h3>For Collaboration.</h3>
-        <p class="contact-message">
-          Are looking for any assistance in designing your own website? Let's
-          collaborate and make wonderful webpages which are human friendly and
-          functional.
-        </p>
-        <a class="btn" href="mailto:senthilkumar.jeyaeasan@gmail.com"
-          >CONTACT ME</a
-        >
-      </div>
-    </div>
-
+    </section>
     <div class="bottom-container">
       <a
         class="footer-link"

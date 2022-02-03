@@ -3,6 +3,21 @@ body {
   text-align: center;
   font-family: "Merriweather", serif;
 }
+/* h1 {
+  font-family: "Merriweather", serif;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Sacramento", cursive;
+  font-family: "Ubuntu", sans-serif;
+  font-family: "Montserrat-Black";
+  font-size: 3rem;
+  line-height: 1.5;
+} */
+.container-fluid {
+  padding: 3% 15%;
+}
+#title {
+  background-color: #dbe2ef;
+}
 h1 {
   color: #3f72af;
   font-size: 5.625rem;
