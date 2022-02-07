@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "name": "intro-to-node",
+  "version": "1.0.0",
+  "description": "Intro to Node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Senthil J",
+  "license": "ISC",
+  "dependencies": {
+    "superheroes": "^3.0.0"
+  }
+}
