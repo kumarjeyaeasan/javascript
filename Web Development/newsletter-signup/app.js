@@ -4,7 +4,8 @@ const client = require("@mailchimp/mailchimp_marketing");
 const https = require("https");
 const app = express();
 
-const port = 3000;
+// const port = 3000;
+const port = process.env.PORT || 3000;
 
 client.setConfig({
   apiKey: "d42aa6b495386b148c97457ffa25c684",
