@@ -1,0 +1,11 @@
+<%- include("partials/header"); -%>
+<div class="comp">
+<h1>Home</h1>
+<p><%=homeStartingContent%></p>
+<% posts.forEach((post) => { %>
+    <h1><%=post.titleText%></h1>
+    <p> <%=post.composeText%> </p>
+    
+<%});  %>
+</div>
+<%- include("partials/footer"); -%>
