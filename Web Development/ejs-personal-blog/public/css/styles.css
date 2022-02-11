@@ -1,3 +1,7 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
 .container-fluid {
   padding-top: 70px;
   padding-bottom: 70px;
@@ -17,6 +21,7 @@
 }
 .comp {
   margin-left: 40px;
+  margin-right: 40px;
 }
 .footer-padding {
   padding-bottom: 60px;

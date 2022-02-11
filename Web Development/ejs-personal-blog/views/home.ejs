@@ -4,8 +4,12 @@
 <p><%=homeStartingContent%></p>
 <% posts.forEach((post) => { %>
     <h1><%=post.titleText%></h1>
-    <p> <%=post.composeText%> </p>
+    <p> 
+        <%=`${post.composeText.substring(0, 100)} ...`%> 
+        <a href="/posts/<%=post.titleText%>">Read More</a>
+    </p>
+    <p><strong><em><%=postDate%></em></strong></p>
     
-<%});  %>
+<%});%>
 </div>
 <%- include("partials/footer"); -%>
