@@ -6,9 +6,9 @@
     <h1><%=post.titleText%></h1>
     <p> 
         <%=`${post.composeText.substring(0, 100)} ...`%> 
-        <a href="/posts/<%=post.titleText%>">Read More</a>
+        <a href="/posts/<%=post._id%>">Read More</a>
     </p>
-    <p><strong><em><%=postDate%></em></strong></p>
+    <p><strong><em><%=post.postDate%></em></strong></p>
     
 <%});%>
 </div>

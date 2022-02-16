@@ -1,11 +1,13 @@
 //jshint esversion:6
 
 const express = require("express");
-
 const ejs = require("ejs");
-
+const mongoose = require("mongoose");
+const { MongoClient } = require("mongodb");
 const _ = require("lodash");
 const date = require(`${__dirname}/date.js`);
+
+const port = process.env.PORT || 3000;
 
 const homeStartingContent =
   "Lacus vel facilisis volutpat est velit egestas dui id ornare. Semper auctor neque vitae tempus quam. Sit amet cursus sit amet dictum sit amet justo. Viverra tellus in hac habitasse. Imperdiet proin fermentum leo vel orci porta. Donec ultrices tincidunt arcu non sodales neque sodales ut. Mattis molestie a iaculis at erat pellentesque adipiscing. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Odio euismod lacinia at quis risus sed vulputate odio ut. Cursus mattis molestie a iaculis at erat pellentesque adipiscing.";
@@ -16,21 +18,36 @@ const contactContent =
 
 const app = express();
 
-let posts = [];
+mongoose.connect("mongodb://localhost:27017/blogDB");
 
 app.set("view engine", "ejs");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+const postSchema = {
+  titleText: String,
+  composeText: String,
+  postDate: Date,
+};
+
+const Post = mongoose.model("Post", postSchema);
+
 app.get("/", (req, res) => {
-  const today = new Date();
-  const options = { weekday: "long", month: "long", day: "numeric" };
-  const day = today.toLocaleDateString("en-US", options);
-  res.render("home", {
-    homeStartingContent: homeStartingContent,
-    posts: posts,
-    postDate: date.getDate(),
+  Post.find({}, function (err, foundItems) {
+    if (foundItems.length !== 0) {
+      // Item.insertMany(defaultItems, function (err) {
+      //   if (err) {
+      //     console.log(err);
+      //   } else {
+      //     console.log("Successfully savevd default items to DB.");
+      //   }
+      // });
+      res.render("home", {
+        homeStartingContent: homeStartingContent,
+        posts: foundItems,
+      });
+    }
   });
 });
 
@@ -47,24 +64,27 @@ app.get("/compose", (req, res) => {
 });
 
 app.post("/compose", (req, res) => {
-  const post = {
+  const post = new Post({
     titleText: req.body.titleText,
     composeText: req.body.composeText,
     postDate: date.getDate(),
-  };
-  posts.push(post);
-  res.redirect("/");
+  });
+  post.save((err) => {
+    if (!err) {
+      res.redirect("/");
+    }
+  });
 });
 
-app.get("/posts/:postName", (req, res) => {
-  posts.forEach((post) => {
-    if (_.lowerCase(post.titleText) === _.lowerCase(req.params.postName)) {
-      res.render("post", {
-        postName: post.titleText,
-        postContent: post.composeText,
-        postDate: date.getDate(),
-      });
-    }
+app.get("/posts/:postId", (req, res) => {
+  const requestedPostId = req.params.postId;
+
+  Post.findOne({ _id: req.params.postId }, (err, post) => {
+    res.render("post", {
+      postName: post.titleText,
+      postContent: post.composeText,
+      postDate: post.postDate,
+    });
   });
 });
 
